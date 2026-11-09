@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="BMI Pro is a smart BMI calculator with health insights, interactive visualizations, and calculation history."
+    >
+
+    <meta name="theme-color" content="#101322">
+
+    <title>BMI Pro | Smart Health Calculator</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <script type="module" src="./js/app.js"></script>
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Navigation -->
+        <header class="navbar">
+
+            <a href="#" class="brand">
+                <div class="brand-icon">✚</div>
+                <span>BMI<span class="brand-highlight">Pro</span></span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#calculator">Calculator</a>
+                <a href="#insights">Insights</a>
+                <a href="#history">History</a>
+            </nav>
+
+            <div class="nav-status">
+                <span class="status-dot"></span>
+                Smart Health Tools
+            </div>
+
+        </header>
+
+
+        <!-- Hero -->
+        <main>
+
+            <section class="hero">
+
+                <div class="hero-content">
+
+                    <span class="eyebrow">
+                        YOUR PERSONAL HEALTH COMPANION
+                    </span>
+
+                    <h1>
+                        Understand your body.
+                        <span>Track your health.</span>
+                    </h1>
+
+                    <p>
+                        Calculate your Body Mass Index, understand your
+                        results, and explore useful health insights
+                        through a simple interactive dashboard.
+                    </p>
+
+                    <a href="#calculator" class="primary-button">
+                        Calculate My BMI →
+                    </a>
+
+                </div>
+
+                <div class="hero-card">
+
+                    <div class="hero-card-top">
+                        <span>HEALTH OVERVIEW</span>
+                        <span class="live-indicator">● LIVE</span>
+                    </div>
+
+                    <div class="hero-stat">
+                        <div class="hero-stat-icon">♥</div>
+                        <div>
+                            <strong>Know your numbers</strong>
+                            <small>Make informed health decisions</small>
+                        </div>
+                    </div>
+
+                    <div class="hero-stat">
+                        <div class="hero-stat-icon">◈</div>
+                        <div>
+                            <strong>Understand your BMI</strong>
+                            <small>Explore your calculated category</small>
+                        </div>
+                    </div>
+
+                    <div class="hero-stat">
+                        <div class="hero-stat-icon">↗</div>
+                        <div>
+                            <strong>Monitor your progress</strong>
+                            <small>Review your calculation history</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Calculator -->
+            <section class="calculator-section" id="calculator">
+
+                <div class="section-heading">
+                    <span class="eyebrow">BMI CALCULATOR</span>
+                    <h2>Calculate your BMI</h2>
+                    <p>
+                        Enter your height and weight to calculate
+                        your Body Mass Index.
+                    </p>
+                </div>
+
+                <div class="calculator-grid">
+
+                    <!-- Input panel -->
+                    <div class="panel input-panel">
+
+                        <div class="panel-heading">
+                            <h3>Your measurements</h3>
+                            <span class="panel-icon">⚖</span>
+                        </div>
+
+                        <form id="bmi-form" novalidate>
+
+                            <label class="field-label">
+                                Measurement system
+                            </label>
+
+                            <div class="unit-selector">
+
+                                <button
+                                    type="button"
+                                    class="unit-button active"
+                                    data-unit="metric"
+                                    aria-pressed="true"
+                                >
+                                    Metric
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="unit-button"
+                                    data-unit="imperial"
+                                    aria-pressed="false"
+                                >
+                                    Imperial
+                                </button>
+
+                            </div>
+
+
+                            <!-- Metric inputs -->
+                            <div id="metric-inputs">
+
+                                <div class="form-group">
+                                    <label for="weight-kg">
+                                        Weight
+                                    </label>
+
+                                    <div class="input-wrapper">
+                                        <input
+                                            type="number"
+                                            id="weight-kg"
+                                            placeholder="e.g. 70"
+                                            min="1"
+                                            max="500"
+                                            step="any"
+                                            required
+                                        >
+                                        <span>kg</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="height-cm">
+                                        Height
+                                    </label>
+
+                                    <div class="input-wrapper">
+                                        <input
+                                            type="number"
+                                            id="height-cm"
+                                            placeholder="e.g. 175"
+                                            min="50"
+                                            max="300"
+                                            step="any"
+                                            required
+                                        >
+                                        <span>cm</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Imperial inputs -->
+                            <div id="imperial-inputs" hidden>
+
+                                <div class="form-group">
+                                    <label for="weight-lbs">
+                                        Weight
+                                    </label>
+
+                                    <div class="input-wrapper">
+                                        <input
+                                            type="number"
+                                            id="weight-lbs"
+                                            placeholder="e.g. 154"
+                                            min="2"
+                                            max="1100"
+                                            step="any"
+                                        >
+                                        <span>lbs</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Height</label>
+
+                                    <div class="height-inputs">
+
+                                        <div class="input-wrapper">
+                                            <input
+                                                type="number"
+                                                id="height-ft"
+                                                placeholder="5"
+                                                min="0"
+                                                max="8"
+                                                step="1"
+                                            >
+                                            <span>ft</span>
+                                        </div>
+
+                                        <div class="input-wrapper">
+                                            <input
+                                                type="number"
+                                                id="height-in"
+                                                placeholder="9"
+                                                min="0"
+                                                max="11.99"
+                                                step="any"
+                                            >
+                                            <span>in</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <p
+                                class="error-message"
+                                id="error-message"
+                                role="alert"
+                            ></p>
+
+                            <button
+                                type="submit"
+                                class="primary-button calculate-button"
+                            >
+                                Calculate BMI →
+                            </button>
+
+                            <button
+                                type="reset"
+                                class="reset-button"
+                                id="reset-button"
+                            >
+                                Reset measurements
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- Results panel -->
+                    <div class="panel result-panel">
+
+                        <div class="panel-heading">
+                            <h3>Your BMI result</h3>
+                            <span class="result-badge" id="result-status">
+                                Awaiting input
+                            </span>
+                        </div>
+
+                        <div class="result-placeholder" id="result-placeholder">
+
+                            <div class="placeholder-icon">⌁</div>
+
+                            <h3>Your results will appear here</h3>
+
+                            <p>
+                                Enter your measurements and click
+                                Calculate BMI to view your results.
+                            </p>
+
+                        </div>
+
+
+                        <div id="result-content" hidden>
+
+                            <div class="bmi-number-container">
+
+                                <span class="result-caption">
+                                    YOUR BODY MASS INDEX
+                                </span>
+
+                                <div
+                                    class="bmi-number"
+                                    id="bmi-value"
+                                >
+                                    0.0
+                                </div>
+
+                                <div
+                                    class="bmi-category"
+                                    id="bmi-category"
+                                >
+                                    Normal
+                                </div>
+
+                            </div>
+
+
+                            <!-- BMI Gauge -->
+                            <div class="gauge-container">
+
+                                <div class="gauge-track">
+
+                                    <div class="gauge-segment underweight"></div>
+                                    <div class="gauge-segment normal"></div>
+                                    <div class="gauge-segment overweight"></div>
+                                    <div class="gauge-segment obese"></div>
+
+                                    <div
+                                        class="gauge-indicator"
+                                        id="gauge-indicator"
+                                    ></div>
+
+                                </div>
+
+                                <div class="gauge-labels">
+                                    <span>Underweight</span>
+                                    <span>Normal</span>
+                                    <span>Overweight</span>
+                                    <span>Obese</span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="result-description">
+                                <p id="result-description"></p>
+                            </div>
+
+
+                            <div class="result-metrics">
+
+                                <div class="metric-card">
+                                    <span>Healthy weight range</span>
+                                    <strong id="healthy-range">--</strong>
+                                </div>
+
+                                <div class="metric-card">
+                                    <span>Weight difference</span>
+                                    <strong id="weight-difference">--</strong>
+                                </div>
+
+                            </div>
+
+                            <button
+                                class="save-button"
+                                id="save-button"
+                                type="button"
+                            >
+                                Save this calculation
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Insights -->
+            <section class="insights-section" id="insights">
+
+                <div class="section-heading">
+                    <span class="eyebrow">UNDERSTANDING BMI</span>
+                    <h2>Know your BMI category</h2>
+                    <p>
+                        Standard adult BMI classification reference.
+                    </p>
+                </div>
+
+                <div class="category-grid">
+
+                    <article class="category-card category-underweight">
+                        <span class="category-indicator"></span>
+                        <h3>Underweight</h3>
+                        <strong>Below 18.5</strong>
+                        <p>BMI is below the standard healthy-weight range.</p>
+                    </article>
+
+                    <article class="category-card category-normal">
+                        <span class="category-indicator"></span>
+                        <h3>Normal weight</h3>
+                        <strong>18.5 – 24.9</strong>
+                        <p>BMI falls within the standard healthy-weight range.</p>
+                    </article>
+
+                    <article class="category-card category-overweight">
+                        <span class="category-indicator"></span>
+                        <h3>Overweight</h3>
+                        <strong>25.0 – 29.9</strong>
+                        <p>BMI is above the standard healthy-weight range.</p>
+                    </article>
+
+                    <article class="category-card category-obese">
+                        <span class="category-indicator"></span>
+                        <h3>Obesity</h3>
+                        <strong>30.0 or above</strong>
+                        <p>BMI is in an obesity classification.</p>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- History -->
+            <section class="history-section" id="history">
+
+                <div class="section-heading history-heading">
+
+                    <div>
+                        <span class="eyebrow">YOUR ACTIVITY</span>
+                        <h2>Calculation history</h2>
+                        <p>
+                            Your previously saved BMI calculations.
+                        </p>
+                    </div>
+
+                    <button
+                        class="clear-history-button"
+                        id="clear-history-button"
+                        type="button"
+                    >
+                        Clear history
+                    </button>
+
+                </div>
+
+
+                <div class="panel history-panel">
+
+                    <div id="history-empty" class="history-empty">
+                        <span>◷</span>
+                        <h3>No saved calculations yet</h3>
+                        <p>
+                            Your saved BMI calculations will appear here.
+                        </p>
+                    </div>
+
+                    <div class="history-table-wrapper" id="history-table-wrapper" hidden>
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>BMI</th>
+                                    <th>Category</th>
+                                    <th>Weight</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="history-body"></tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Disclaimer -->
+            <section class="disclaimer">
+
+                <div class="disclaimer-icon">ⓘ</div>
+
+                <div>
+                    <h3>Health disclaimer</h3>
+                    <p>
+                        BMI is a screening measure and should not be used
+                        as the sole indicator of health. It does not directly
+                        measure body fat or distinguish between muscle and fat.
+                        Interpretation may vary with age, sex, ethnicity,
+                        pregnancy status and other factors. This calculator
+                        is designed for adults aged 20 and above. Consult a
+                        qualified healthcare professional for personalized
+                        medical advice.
+                    </p>
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+
+            <a href="#" class="brand">
+                <div class="brand-icon">✚</div>
+                <span>BMI<span class="brand-highlight">Pro</span></span>
+            </a>
+
+            <p>
+                Built with HTML, CSS and Vanilla JavaScript.
+            </p>
+
+            <span>© 2026 BMI Pro. All rights reserved.</span>
+
+        </footer>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "bmi-pro",
+  "version": "1.0.0",
+  "description": "A modern BMI calculator built with Vanilla JavaScript, HTML and CSS.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "check": "node --check js/app.js && node --check js/bmi.js && node --check js/storage.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
